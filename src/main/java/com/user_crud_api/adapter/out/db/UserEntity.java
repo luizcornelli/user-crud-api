@@ -1,9 +1,15 @@
 package com.user_crud_api.adapter.out.db;
 
 import jakarta.persistence.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.time.Instant;
 
 @Entity
 @Table(name = "users")
+@EntityListeners(AuditingEntityListener.class)
 public class UserEntity {
 
     @Id
@@ -15,6 +21,14 @@ public class UserEntity {
 
     @Column(name = "email")
     private String email;
+
+    @CreatedDate
+    @Column(name = "created_at", updatable = false)
+    private Instant createdAt;
+
+    @LastModifiedDate
+    @Column(name = "updated_at")
+    private Instant updatedAt;
 
     //getters and setters
 
@@ -41,4 +55,7 @@ public class UserEntity {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public Instant getCreatedAt() { return createdAt; }
+    public Instant getUpdatedAt() { return updatedAt; }
 }

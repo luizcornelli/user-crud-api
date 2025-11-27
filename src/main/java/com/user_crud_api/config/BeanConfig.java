@@ -13,5 +13,7 @@ public class BeanConfig {
     public UserUseCase userUseCase(UserRepositoryPort repo) {
         return new UserService(repo);
     }
+
+
 }
 

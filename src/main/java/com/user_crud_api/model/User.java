@@ -1,10 +1,23 @@
 package com.user_crud_api.model;
 
+import java.time.Instant;
+
 public class User {
 
     private Long id;
     private String name;
     private String email;
+    private Instant createdAt;
+    private Instant updatedAt;
+
+    public User(){
+    }
+
+    public User(Long id, String name, String email) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+    }
 
     //getters and setters
 
@@ -30,5 +43,21 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Instant getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Instant updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

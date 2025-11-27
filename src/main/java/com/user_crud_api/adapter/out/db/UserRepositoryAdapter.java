@@ -54,8 +54,8 @@ public class UserRepositoryAdapter implements UserRepositoryPort {
         user.setId(entity.getId());
         user.setName(entity.getName());
         user.setEmail(entity.getEmail());
-
+        user.setCreatedAt(entity.getCreatedAt());
+        user.setUpdatedAt(entity.getUpdatedAt());
         return user;
     }
-
 }
